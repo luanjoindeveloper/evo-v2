@@ -12,6 +12,7 @@ if [[ "$DATABASE_PROVIDER" == "postgresql" || "$DATABASE_PROVIDER" == "mysql" ||
     echo "Database URL: $DATABASE_URL"
     # rm -rf ./prisma/migrations
     # cp -r ./prisma/$DATABASE_PROVIDER-migrations ./prisma/migrations
+    npx prisma migrate resolve --applied 20250918182355_add_kafka_integration --schema ./prisma/postgresql-schema.prisma
     npm run db:deploy
     if [ $? -ne 0 ]; then
         echo "Migration failed"
