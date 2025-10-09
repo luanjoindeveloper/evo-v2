@@ -158,7 +158,7 @@ export class InstanceController {
             status: instance.connectionStatus.state,
           },
           hash: {
-            apikey: hashCriado
+            apikey: hashCriado,
           },
           webhook: {
             webhookUrl: instanceData?.webhook?.url,
@@ -251,7 +251,7 @@ export class InstanceController {
           status: instance.connectionStatus.state,
         },
         hash: {
-          apikey: hashCriado
+          apikey: hashCriado,
         },
         webhook: {
           webhookUrl: instanceData?.webhook?.url,

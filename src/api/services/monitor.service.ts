@@ -107,14 +107,14 @@ export class WAMonitoringService {
       },
     });
 
-  return instances.map((inst) => ({
+    return instances.map((inst) => ({
       instance: {
         instanceId: inst.id,
         instanceName: inst.name,
         owner: inst.ownerJid,
         profileName: inst.profileName,
         profilePictureUrl: inst.profilePicUrl,
-        status: inst.connectionStatus || "unknown",
+        status: inst.connectionStatus || 'unknown',
         apikey: inst.token,
       },
     }));

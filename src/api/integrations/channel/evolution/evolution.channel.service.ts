@@ -291,7 +291,7 @@ export class EvolutionStartupService extends ChannelStartupService {
   ) {
     try {
       let quoted: any;
-      let webhookUrl: any;
+      // let webhookUrl: any;
 
       if (options?.quoted) {
         const m = options?.quoted;
@@ -309,9 +309,9 @@ export class EvolutionStartupService extends ChannelStartupService {
         await new Promise((resolve) => setTimeout(resolve, options.delay));
       }
 
-      if (options?.webhookUrl) {
-        webhookUrl = options.webhookUrl;
-      }
+      // if (options?.webhookUrl) {
+      //   webhookUrl = options.webhookUrl;
+      // }
 
       let audioFile;
 

@@ -21,7 +21,7 @@ export class SettingsRouter extends RouterBroker {
           readStatus: req.body.read_status,
           syncFullHistory: false,
         };
-        
+
         const response = await this.dataValidate<SettingsDto>({
           request: req,
           schema: settingsSchema,
