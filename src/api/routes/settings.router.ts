@@ -12,6 +12,16 @@ export class SettingsRouter extends RouterBroker {
     super();
     this.router
       .post(this.routerPath('set'), ...guards, async (req, res) => {
+        req.body = {
+          rejectCall: req.body.reject_call,
+          msgCall: req.body.msg_call,
+          groupsIgnore: req.body.groups_ignore,
+          alwaysOnline: req.body.always_online,
+          readMessages: req.body.read_messages,
+          readStatus: req.body.read_status,
+          syncFullHistory: false,
+        };
+        
         const response = await this.dataValidate<SettingsDto>({
           request: req,
           schema: settingsSchema,

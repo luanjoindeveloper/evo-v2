@@ -21,6 +21,15 @@ export class WebhookController extends EventController implements EventControlle
     // if (!/^(https?:\/\/)/.test(data.webhook.url)) {
     //   throw new BadRequestException('Invalid "url" property');
     // }
+    data.webhook = {
+      enabled: true, 
+      url: data.url,
+      byEvents: data.webhook_by_events,
+      base64: data.webhook_base64,
+      events: [
+        ...data.events
+      ]
+    };
 
     if (!data.webhook?.enabled) {
       data.webhook.events = [];
@@ -96,8 +105,8 @@ export class WebhookController extends EventController implements EventControlle
       destination: instance?.url || `${webhookConfig.GLOBAL.URL}/${transformedWe}`,
       date_time: dateTime,
       sender,
-      server_url: serverUrl,
-      apikey: apiKey,
+      // server_url: serverUrl,
+      // apikey: apiKey,
     };
 
     if (local && instance?.enabled) {

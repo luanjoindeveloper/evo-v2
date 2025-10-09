@@ -329,7 +329,6 @@ export class EvolutionStartupService extends ChannelStartupService {
           },
           messageType: 'imageMessage',
           messageTimestamp: Math.round(new Date().getTime() / 1000),
-          webhookUrl,
           source: 'unknown',
           instanceId: this.instanceId,
         };
@@ -343,7 +342,6 @@ export class EvolutionStartupService extends ChannelStartupService {
           },
           messageType: 'videoMessage',
           messageTimestamp: Math.round(new Date().getTime() / 1000),
-          webhookUrl,
           source: 'unknown',
           instanceId: this.instanceId,
         };
@@ -357,7 +355,6 @@ export class EvolutionStartupService extends ChannelStartupService {
           },
           messageType: 'audioMessage',
           messageTimestamp: Math.round(new Date().getTime() / 1000),
-          webhookUrl,
           source: 'unknown',
           instanceId: this.instanceId,
         };
@@ -378,7 +375,6 @@ export class EvolutionStartupService extends ChannelStartupService {
           },
           messageType: 'documentMessage',
           messageTimestamp: Math.round(new Date().getTime() / 1000),
-          webhookUrl,
           source: 'unknown',
           instanceId: this.instanceId,
         };
@@ -394,7 +390,6 @@ export class EvolutionStartupService extends ChannelStartupService {
           },
           messageType: 'buttonMessage',
           messageTimestamp: Math.round(new Date().getTime() / 1000),
-          webhookUrl,
           source: 'unknown',
           instanceId: this.instanceId,
         };
@@ -407,7 +402,6 @@ export class EvolutionStartupService extends ChannelStartupService {
           },
           messageType: 'listMessage',
           messageTimestamp: Math.round(new Date().getTime() / 1000),
-          webhookUrl,
           source: 'unknown',
           instanceId: this.instanceId,
         };
@@ -420,7 +414,6 @@ export class EvolutionStartupService extends ChannelStartupService {
           },
           messageType: 'conversation',
           messageTimestamp: Math.round(new Date().getTime() / 1000),
-          webhookUrl,
           source: 'unknown',
           instanceId: this.instanceId,
         };

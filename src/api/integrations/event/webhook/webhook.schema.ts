@@ -26,6 +26,17 @@ export const webhookSchema: JSONSchema7 = {
   $id: v4(),
   type: 'object',
   properties: {
+    url: { type: 'string' },
+    webhook_by_events: { type: 'boolean' },
+    webhook_base64: { type: 'boolean' },
+    events: {
+          type: 'array',
+          minItems: 0,
+          items: {
+            type: 'string',
+            enum: EventController.events,
+          },
+        },
     webhook: {
       type: 'object',
       properties: {
@@ -43,9 +54,9 @@ export const webhookSchema: JSONSchema7 = {
           },
         },
       },
-      required: ['enabled', 'url'],
-      ...isNotEmpty('enabled', 'url'),
+      // required: ['enabled', 'url'],
+      // ...isNotEmpty('enabled', 'url'),
     },
   },
-  required: ['webhook'],
+  // required: ['webhook'],
 };

@@ -3994,27 +3994,27 @@ export class BaileysStartupService extends ChannelStartupService {
   }
 
   public async handleLabel(data: HandleLabelDto) {
-    const whatsappContact = await this.whatsappNumber({ numbers: [data.number] });
-    if (whatsappContact.length === 0) {
-      throw new NotFoundException('Number not found');
-    }
-    const contact = whatsappContact[0];
-    if (!contact.exists) {
-      throw new NotFoundException('Number is not on WhatsApp');
-    }
-
+    // const whatsappContact = await this.whatsappNumber({ numbers: [data.number] });
+    // if (whatsappContact.length === 0) {
+    //   throw new NotFoundException('Number not found');
+    // }
+    // const contact = whatsappContact[0];
+    // if (!contact.exists) {
+    //   throw new NotFoundException('Number is not on WhatsApp');
+    // }
+    // cot
     try {
       if (data.action === 'add') {
-        await this.client.addChatLabel(contact.jid, data.labelId);
-        await this.addLabel(data.labelId, this.instanceId, contact.jid);
+        await this.client.addChatLabel(data.number + "@s.whatsapp.net", data.labelId);
+        // await this.addLabel(data.labelId, this.instanceId, '5519997404859@s.whatsapp.net');
 
-        return { numberJid: contact.jid, labelId: data.labelId, add: true };
+        return { numberJid: data.number + "@s.whatsapp.net", labelId: data.labelId, add: true };
       }
       if (data.action === 'remove') {
-        await this.client.removeChatLabel(contact.jid, data.labelId);
-        await this.removeLabel(data.labelId, this.instanceId, contact.jid);
+        await this.client.removeChatLabel(data.number + "@s.whatsapp.net", data.labelId);
+        // await this.removeLabel(data.labelId, this.instanceId, '5519997404859@s.whatsapp.net');
 
-        return { numberJid: contact.jid, labelId: data.labelId, remove: true };
+        return { numberJid: data.number + "@s.whatsapp.net", labelId: data.labelId, remove: true };
       }
     } catch (error) {
       throw new BadRequestException(`Unable to ${data.action} label to chat`, error.toString());

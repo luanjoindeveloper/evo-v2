@@ -54,10 +54,10 @@ export class InstanceController {
 
       instanceData.instanceId = instanceId;
 
-      let hash: string;
+      let hashCriado: string;
 
-      if (!instanceData.token) hash = v4().toUpperCase();
-      else hash = instanceData.token;
+      if (!instanceData.token) hashCriado = v4().toUpperCase();
+      else hashCriado = instanceData.token;
 
       await this.waMonitor.saveInstance({
         instanceId,
@@ -66,7 +66,7 @@ export class InstanceController {
         ownerJid: instanceData.ownerJid,
         profileName: instanceData.profileName,
         profilePicUrl: instanceData.profilePicUrl,
-        hash,
+        hashCriado,
         number: instanceData.number,
         businessId: instanceData.businessId,
         status: instanceData.status,
@@ -76,7 +76,7 @@ export class InstanceController {
         instanceName: instanceData.instanceName,
         instanceId,
         integration: instanceData.integration,
-        token: hash,
+        token: hashCriado,
         number: instanceData.number,
         businessId: instanceData.businessId,
       });
@@ -157,7 +157,9 @@ export class InstanceController {
             accessTokenWaBusiness,
             status: instance.connectionStatus.state,
           },
-          hash,
+          hash: {
+            apikey: hashCriado
+          },
           webhook: {
             webhookUrl: instanceData?.webhook?.url,
             webhookHeaders: instanceData?.webhook?.headers,
@@ -248,7 +250,9 @@ export class InstanceController {
           accessTokenWaBusiness,
           status: instance.connectionStatus.state,
         },
-        hash,
+        hash: {
+          apikey: hashCriado
+        },
         webhook: {
           webhookUrl: instanceData?.webhook?.url,
           webhookHeaders: instanceData?.webhook?.headers,

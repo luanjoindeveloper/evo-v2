@@ -46,7 +46,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('updateGroupSubject'), ...guards, async (req, res) => {
+      .put(this.routerPath('updateGroupSubject'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupSubjectDto>({
           request: req,
           schema: updateGroupSubjectSchema,
@@ -56,7 +56,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('updateGroupPicture'), ...guards, async (req, res) => {
+      .put(this.routerPath('updateGroupPicture'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupPictureDto>({
           request: req,
           schema: updateGroupPictureSchema,
@@ -66,7 +66,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('updateGroupDescription'), ...guards, async (req, res) => {
+      .put(this.routerPath('updateGroupDescription'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupDescriptionDto>({
           request: req,
           schema: updateGroupDescriptionSchema,
@@ -156,7 +156,7 @@ export class GroupRouter extends RouterBroker {
 
         res.status(HttpStatus.CREATED).json(response);
       })
-      .post(this.routerPath('updateParticipant'), ...guards, async (req, res) => {
+      .put(this.routerPath('updateParticipant'), ...guards, async (req, res) => {
         const response = await this.groupValidate<GroupUpdateParticipantDto>({
           request: req,
           schema: updateParticipantsSchema,
