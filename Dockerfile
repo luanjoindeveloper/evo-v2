@@ -32,8 +32,7 @@ RUN npm run build
 
 FROM node:24-alpine AS final
 
-RUN apk update && \
-    apk add tzdata ffmpeg bash openssl
+RUN apk update && apk add tzdata ffmpeg bash openssl
 
 ENV TZ=America/Sao_Paulo
 ENV DOCKER_ENV=true
@@ -57,4 +56,4 @@ ENV DOCKER_ENV=true
 
 EXPOSE 8080
 
-ENTRYPOINT ["/bin/bash", "-c", ". ./Docker/scripts/deploy_database.sh && npm run start:prod" ]
+ENTRYPOINT ["/bin/bash", "-c", ". ./Docker/scripts/deploy_database.sh && npm run start" ]
