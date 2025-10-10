@@ -66,7 +66,7 @@ export class InstanceController {
         ownerJid: instanceData.ownerJid,
         profileName: instanceData.profileName,
         profilePicUrl: instanceData.profilePicUrl,
-        hashCriado,
+        hash: hashCriado,
         number: instanceData.number,
         businessId: instanceData.businessId,
         status: instanceData.status,
