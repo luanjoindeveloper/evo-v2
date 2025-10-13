@@ -55,8 +55,8 @@ export class MessageRouter extends RouterBroker {
         req.body = {
           number: req.body.number,
           text: req.body.textMessage.text,
-          delay: req.body.options.delay ?? 100,
-          linkPreview: req.body.options.linkPreview ?? false,
+          delay: req.body.options?.delay ?? 100,
+          linkPreview: req.body.options?.linkPreview ?? false,
         };
 
         const response = await this.dataValidate<SendTextDto>({
@@ -72,10 +72,10 @@ export class MessageRouter extends RouterBroker {
         req.body = {
           number: req.body.number,
           mediatype: req.body.mediaMessage.mediatype,
-          caption: req.body.mediaMessage.caption ?? '',
+          caption: req.body.mediaMessage?.caption ?? '',
           media: req.body.mediaMessage.media,
           fileName: req.body.mediaMessage.fileName,
-          delay: req.body.options.delay ?? 100,
+          delay: req.body.options?.delay ?? 100,
         };
 
         const bodyData = req.body;
@@ -108,8 +108,8 @@ export class MessageRouter extends RouterBroker {
         req.body = {
           number: req.body.number,
           audio: req.body.audioMessage.audio,
-          delay: req.body.options.delay ?? 100,
-          encoding: req.body.options.encoding ?? true,
+          delay: req.body.options?.delay ?? 100,
+          encoding: req.body.options?.encoding ?? true,
         };
 
         const bodyData = req.body;

@@ -17,9 +17,9 @@ export class InstanceRouter extends RouterBroker {
       .post('/create', ...guards, async (req, res) => {
         req.body = {
           instanceName: req.body.instanceName,
-          token: req.body.token ?? null,
-          qrcode: req.body.qrcode ?? true,
-          integration: req.body.integration ?? 'WHATSAPP-BAILEYS',
+          token: req.body?.token ?? null,
+          qrcode: req.body?.qrcode ?? true,
+          integration: req.body?.integration ?? 'WHATSAPP-BAILEYS',
         };
 
         const response = await this.dataValidate<InstanceDto>({
