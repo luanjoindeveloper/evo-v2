@@ -21,13 +21,16 @@ export class WebhookController extends EventController implements EventControlle
     // if (!/^(https?:\/\/)/.test(data.webhook.url)) {
     //   throw new BadRequestException('Invalid "url" property');
     // }
-    data.webhook = {
-      enabled: true,
-      url: data.url,
-      byEvents: data.webhook_by_events,
-      base64: data.webhook_base64,
-      events: [...data.events],
-    };
+
+    // Removido porque não estava chegando o base64 no GeoVendas
+    // data.webhook = {
+    //   enabled: true,
+    //   url: data.url,
+    //   byEvents: data.webhook_by_events,
+    //   base64: data.webhook_base64,
+    //   events: [...data.events],
+    // };
+
 
     if (!data.webhook?.enabled) {
       data.webhook.events = [];
