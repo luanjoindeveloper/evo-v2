@@ -31,7 +31,6 @@ export class WebhookController extends EventController implements EventControlle
     //   events: [...data.events],
     // };
 
-
     if (!data.webhook?.enabled) {
       data.webhook.events = [];
     } else {
