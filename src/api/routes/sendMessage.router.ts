@@ -57,6 +57,7 @@ export class MessageRouter extends RouterBroker {
           text: req.body.textMessage.text,
           delay: req.body.options?.delay ?? 100,
           linkPreview: req.body.options?.linkPreview ?? false,
+          quoted: req.body.options?.quoted
         };
 
         const response = await this.dataValidate<SendTextDto>({
