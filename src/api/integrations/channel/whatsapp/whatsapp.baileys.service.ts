@@ -1328,7 +1328,7 @@ export class BaileysStartupService extends ChannelStartupService {
           }
 
           if (this.localWebhook.enabled) {
-            if (isMedia && this.localWebhook.webhookBase64) {
+            if (isMedia) {
               try {
                 const buffer = await downloadMediaMessage(
                   { key: received.key, message: received?.message },
