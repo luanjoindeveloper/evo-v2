@@ -15,6 +15,14 @@ export class WebhookRouter extends RouterBroker {
     super();
     this.router
       .post(this.routerPath('set'), ...guards, async (req, res) => {
+        req.body.webhook = {
+          enabled: true,
+          url: req.body.url,
+          byEvents: req.body.webhook_by_events,
+          base64: req.body.webhook_base64,
+          events: [...req.body.events],
+        };
+
         const response = await this.dataValidate<EventDto>({
           request: req,
           schema: webhookSchema,

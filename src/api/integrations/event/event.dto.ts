@@ -2,6 +2,11 @@ import { Constructor } from '@api/integrations/integration.dto';
 import { JsonValue } from '@prisma/client/runtime/library';
 
 export class EventDto {
+  url?: string;
+  webhook_by_events?: boolean;
+  webhook_base64?: boolean;
+  events?: string[];
+
   webhook?: {
     enabled?: boolean;
     events?: string[];
@@ -49,6 +54,11 @@ export class EventDto {
 
 export function EventInstanceMixin<TBase extends Constructor>(Base: TBase) {
   return class extends Base {
+    url?: string;
+    webhook_by_events?: boolean;
+    webhook_base64?: boolean;
+    events?: string[];
+
     webhook?: {
       enabled?: boolean;
       events?: string[];

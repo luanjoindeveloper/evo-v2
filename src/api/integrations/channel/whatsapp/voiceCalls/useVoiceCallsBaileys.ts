@@ -69,11 +69,11 @@ export const useVoiceCallsBaileys = async (
     }
   });
 
-  socket.on('assertSessions', async (jids, force, callback) => {
+  socket.on('assertSessions', async (jids) => {
     try {
       const response = await baileys_sock.assertSessions(jids);
 
-      callback(response);
+      // callback(response);
 
       if (logger) console.log('[*] Success on call assertSessions function', response);
     } catch (error) {

@@ -22,6 +22,15 @@ export class WebhookController extends EventController implements EventControlle
     //   throw new BadRequestException('Invalid "url" property');
     // }
 
+    // Removido porque não estava chegando o base64 no GeoVendas
+    // data.webhook = {
+    //   enabled: true,
+    //   url: data.url,
+    //   byEvents: data.webhook_by_events,
+    //   base64: data.webhook_base64,
+    //   events: [...data.events],
+    // };
+
     if (!data.webhook?.enabled) {
       data.webhook.events = [];
     } else {
@@ -62,7 +71,7 @@ export class WebhookController extends EventController implements EventControlle
     serverUrl,
     dateTime,
     sender,
-    apiKey,
+    // apiKey,
     local,
     integration,
   }: EmitData): Promise<void> {
@@ -96,8 +105,8 @@ export class WebhookController extends EventController implements EventControlle
       destination: instance?.url || `${webhookConfig.GLOBAL.URL}/${transformedWe}`,
       date_time: dateTime,
       sender,
-      server_url: serverUrl,
-      apikey: apiKey,
+      // server_url: serverUrl,
+      // apikey: apiKey,
     };
 
     if (local && instance?.enabled) {
