@@ -52,6 +52,15 @@ export class MessageRouter extends RouterBroker {
         return res.status(HttpStatus.CREATED).json(response);
       })
       .post(this.routerPath('sendText'), ...guards, async (req, res) => {
+        
+        req.body = {
+          number: req.body.number,
+          text: req.body.textMessage.text,
+          delay: req.body.options?.delay ?? 100,
+          linkPreview: req.body.options?.linkPreview ?? false,
+          quoted: req.body.options?.quoted,
+        };
+
         const response = await this.dataValidate<SendTextDto>({
           request: req,
           schema: textMessageSchema,
@@ -62,6 +71,15 @@ export class MessageRouter extends RouterBroker {
         return res.status(HttpStatus.CREATED).json(response);
       })
       .post(this.routerPath('sendMedia'), ...guards, upload.single('file'), async (req, res) => {
+        req.body = {
+          number: req.body.number,
+          mediatype: req.body.mediaMessage.mediatype,
+          caption: req.body.mediaMessage?.caption ?? '',
+          media: req.body.mediaMessage.media,
+          fileName: req.body.mediaMessage.fileName,
+          delay: req.body.options?.delay ?? 100,
+        };
+        
         const bodyData = req.body;
 
         const response = await this.dataValidate<SendMediaDto>({
@@ -86,6 +104,12 @@ export class MessageRouter extends RouterBroker {
         return res.status(HttpStatus.CREATED).json(response);
       })
       .post(this.routerPath('sendWhatsAppAudio'), ...guards, upload.single('file'), async (req, res) => {
+        req.body = {
+          number: req.body.number,
+          audio: req.body.audioMessage.audio,
+          delay: req.body.options?.delay ?? 100,
+          encoding: req.body.options?.encoding ?? true,
+        };
         const bodyData = req.body;
 
         const response = await this.dataValidate<SendAudioDto>({
